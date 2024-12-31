@@ -1,0 +1,53 @@
+.board {
+  background-color: #fbb6df;
+  width: 500px;
+  height: 500px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: ridge 10px rgb(212, 0, 134);
+
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), 
+            5px 5px 10px rgba(0, 0, 0, 0.2);
+
+
+  // .pause {
+  //   position: fixed;
+  //   bottom: 12px;
+  //   left: 12px;
+  //   background-color: black;
+  //   padding: 24px;
+  //   cursor: pointer;
+  // }
+
+  .score,
+  .death {
+    position: absolute;
+    top: -10%;
+    font-size: 2rem;
+    text-shadow:
+      -1px -1px 0 black,
+      /* Ombre en haut à gauche */
+      1px -1px 0 black,
+      /* Ombre en haut à droite */
+      -1px 1px 0 black,
+      /* Ombre en bas à gauche */
+      1px 1px 0 black;
+    /* Ombre en bas à droite */
+    color: #e40b8a;
+    font-weight: bold;
+
+
+  }
+
+  .score {
+    left: 0;
+  }
+
+  .death {
+    right: 0;
+  }
+}

@@ -1,0 +1,14 @@
+.snakeDot {
+  background-color: black;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid white;
+  z-index: 2;
+  clip-path: polygon(50% 0,
+        calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+        calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+        calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+        calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))));
+
+}
