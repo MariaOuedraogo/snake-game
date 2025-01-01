@@ -86,3 +86,15 @@ body {
   height: 100%;
   background-image: url("../public/glitter.gif");
 }
+
+.pause{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: #e40b8a;
+background-color: #fbb6df
+;
+padding: 10px;
+border-radius: 5px;
+}

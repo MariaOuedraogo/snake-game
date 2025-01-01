@@ -26,6 +26,7 @@ function App() {
   return (
     <div>
       <div className="glitters"></div>
+      <p className="pause">press "p" to pause and resume</p>
       <video src="/you-died.mp4" id="die-video" className="die-video"></video>
       <video
         src="/nether.mp4"
