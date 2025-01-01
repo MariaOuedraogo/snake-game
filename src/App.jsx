@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div>
+      <div className="glitters"></div>
       <video src="/you-died.mp4" id="die-video" className="die-video"></video>
       <video
         src="/nether.mp4"
@@ -48,6 +49,7 @@ function App() {
         <Toggle mode={"impossible"} />
         <Toggle mode={"reversed"} />
       </div>
+      <p>pause : press p</p>
     </div>
   );
 }
