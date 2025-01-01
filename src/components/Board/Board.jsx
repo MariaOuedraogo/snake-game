@@ -19,7 +19,7 @@ import Scoreboard from "../Scoreboard/Scoreboard";
 
 const Board = () => {
   const { mode, removeMode } = useStore();
-  const [paused, setPaused] = useState(false);
+  const [gamePause, setgamePause] = useState(false);
   const [snakeData, setSnakeData] = useState([
     [0, 0],
     [10, 0],
@@ -174,11 +174,26 @@ const Board = () => {
     return false;
   };
 
+  // const onKeyDown = (e) => {
+  //   // console.log(e);
+  //   if (canChangeDirection.current === false) return;
+  //   canChangeDirection.current = false;
+
+  //   mode.includes("reversed")
+  //     ? reversedControls(e, direction)
+  //     : defaultControls(e, direction);
+  // };
   const onKeyDown = (e) => {
-    // console.log(e);
+    if (e.key === "p" || e.key === "P") {
+      togglePause();
+      return;
+    }
+  
+    if (gamePause) return; // Bloquer les actions si le jeu est en pause
+  
     if (canChangeDirection.current === false) return;
     canChangeDirection.current = false;
-
+  
     mode.includes("reversed")
       ? reversedControls(e, direction)
       : defaultControls(e, direction);
@@ -285,11 +300,11 @@ const Board = () => {
 
   // const pauseGame = () => {
   //   console.log("pause game");
-  //   if (paused) {
+  //   if (gamePause) {
   //     gsap.ticker.add(gameLoop);
-  //     setPaused(false);
+  //     setgamePause(false);
   //   } else {
-  //     setPaused(true);
+  //     setgamePause(true);
   //     timer.current = 0;
   //     foodTimer.current = 0;
 
@@ -297,8 +312,22 @@ const Board = () => {
   //   }
   // };
 
+  const togglePause = () => {
+    setgamePause((prevgamePause) => {
+      if (!prevgamePause) {
+        gsap.ticker.remove(gameLoop); // Stop le gameLoop
+      } else {
+        gsap.ticker.add(gameLoop); // Redémarre le gameLoop
+      }
+      return !prevgamePause;
+    });
+  };
+  
+
   return (
     <>
+      {gamePause && <div className={s.gamePause}>Game paused. Press 'P' to Resume.</div>}
+
       {gameOver && <GameOver replay={replay} />}
       {gameOver && !hasEnteredResults && (
         <Submit
